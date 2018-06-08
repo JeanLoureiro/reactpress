@@ -16,9 +16,11 @@ class Post extends Component {
 
         fetch(ReactThemeSettings.URL.api + "/posts?slug=" + match.params.slug)
             .then( (response) => {
-                if (!response.ok) {
-                    throw Error(response.statusText);
-                }
+
+                const { ok, statusText } = response
+
+                if (!ok) { throw Error( statusText ) }
+
                 return response.json();
             })
             .then( res => ( this.setState({ post: res[0] }) ) )
