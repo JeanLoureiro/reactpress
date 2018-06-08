@@ -10,7 +10,7 @@ class NotFound extends Component {
                         <div className="card-body">
                             <h4 className="card-title">404 Page Not Found!</h4>
                             <p className="card-text">The page you requested does not exist.</p>
-                            <p className="card-text"><Link to={ReactThemeSettings.path}>Return to homepage</Link></p>
+                            <p className="card-text"><Link to={ThemeSettings.path}>Return to homepage</Link></p>
                         </div>
                     </div>
                 </div>

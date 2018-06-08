@@ -14,7 +14,7 @@ class Post extends Component {
 
         const { match } = this.props
 
-        fetch(ReactThemeSettings.URL.api + "/posts?slug=" + match.params.slug)
+        fetch(ThemeSettings.URL.api + "/posts?slug=" + match.params.slug)
             .then( (response) => {
 
                 const { ok, statusText } = response

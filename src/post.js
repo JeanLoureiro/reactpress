@@ -15,7 +15,7 @@ class Post extends React.Component {
         var url = window.location.href.split('/');
         var slug = url.pop() || url.pop();
 
-        fetch(ReactThemeSettings.URL.api + "/posts?slug=" + slug)
+        fetch(ThemeSettings.URL.api + "/posts?slug=" + slug)
             .then(function (response) {
                 if (!response.ok) {
                     throw Error(response.statusText);

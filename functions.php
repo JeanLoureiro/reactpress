@@ -23,7 +23,7 @@ function react_theme_scripts() {
 	$url = trailingslashit( home_url() );
 	$path = trailingslashit( parse_url( $url, PHP_URL_PATH ) );
 
-	wp_scripts()->add_data( 'react-theme-script', 'data', sprintf( 'var ReactThemeSettings = %s;', wp_json_encode( array(
+	wp_scripts()->add_data( 'react-theme-script', 'data', sprintf( 'var ThemeSettings = %s;', wp_json_encode( array(
 		'title' => get_bloginfo( 'name', 'display' ),
 		'path' => $path,
 		'URL' => array(

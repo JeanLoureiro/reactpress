@@ -14,6 +14,7 @@ require('./Component/style.scss')
 
 class App extends Component {
     render () {
+        console.log(ThemeSettings)
         return (
             <div id="page-inner">
                 <Router>
@@ -22,8 +23,8 @@ class App extends Component {
 
                         <div id="content">
                             <Switch>
-                                <Route exact path={ReactThemeSettings.path} component={Posts} />
-                                <Route exact path={ReactThemeSettings.path + 'posts/:slug'} component={Post} />
+                                <Route exact path={ThemeSettings.path} component={Posts} />
+                                <Route exact path={ThemeSettings.path + 'posts/:slug'} component={Post} />
                                 <Route path="*" component={NotFound} />
                             </Switch>
                         </div>
@@ -74,8 +75,8 @@ export default App
 //         <Header />
 //         <div id="content">
 //             <Switch>
-//                 <Route exact path={ReactThemeSettings.path} component={Posts} />
-//                 <Route exact path={ReactThemeSettings.path + 'posts/:slug'} component={Post} />
+//                 <Route exact path={ThemeSettings.path} component={Posts} />
+//                 <Route exact path={ThemeSettings.path + 'posts/:slug'} component={Post} />
 //                 <Route path="*" component={NotFound} />
 //             </Switch>
 //         </div>

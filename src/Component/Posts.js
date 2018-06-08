@@ -49,7 +49,7 @@ class Posts extends Component {
 
         this.setState({ page: this.state.page + 1 });
 
-        fetch(ReactThemeSettings.URL.api + "/posts/?page=" + this.state.page)
+        fetch(ThemeSettings.URL.api + "/posts/?page=" + this.state.page)
             .then( (response) => {
                 const { ok, statusText, headers } = response
                 var totalPages
