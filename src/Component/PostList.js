@@ -33,13 +33,15 @@ class PostList extends Component {
 
 
     render() {
-        if (!this.props.posts) {
+        const { posts } = this.props
+
+        if (!posts) {
             return null;
         }
 
         return (
             <div className="posts-container">
-                {this.props.posts.length ?
+                {posts.length ?
                     this.renderPosts() :
                     <NotFound />
                 }
