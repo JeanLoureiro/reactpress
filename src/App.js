@@ -6,15 +6,12 @@ import Footer from './Component/Footer'
 import Posts from './Component/Posts'
 import Post from './Component/Post'
 import NotFound from './Component/NotFound'
-import LoadingIcon from './Component/loading-icon.gif'
-import Placeholder from './Component/placeholder.jpg'
 
 // // Load the Sass file
 require('./Component/style.scss')
 
 class App extends Component {
     render () {
-        console.log(ThemeSettings)
         return (
             <div id="page-inner">
                 <Router>
