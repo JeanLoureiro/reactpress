@@ -15,7 +15,6 @@ class Posts extends Component {
             getPosts: true,
             controller: false
         }
-        this.getMorePosts = this.getMorePosts.bind(this);
     }
 
     componentWillUnmount() {
@@ -23,55 +22,59 @@ class Posts extends Component {
     }
 
     componentDidMount() {
-        var that = this;
+
         window.onbeforeunload = function () { window.scrollTo(0, 0); }
 
+        const {getPosts} = this.state
+
         // init ScrollMagic Controller
-        that.state.controller = new ScrollMagic.Controller();
+        this.state.controller = new ScrollMagic.Controller();
 
         // build scene
         var scene = new ScrollMagic.Scene({ triggerElement: "#colophon", triggerHook: "onEnter" })
-            .addTo(that.state.controller)
-            .on("enter", function (e) {
-                if (that.state.getPosts && that.getMorePosts !== null) {
-                    that.getMorePosts();
+            .addTo(this.state.controller)
+            .on("enter", (e) => {
+
+                if (getPosts && this.getMorePosts !== null) {
+                    this.getMorePosts();
                 }
-            });
+            })
     }
 
     getMorePosts() {
-        var that = this;
-        var totalPages;
 
         // adding a loader
+        // TODO: Remove jQuery
         jQuery("#loader").addClass("active");
 
         this.setState({ page: this.state.page + 1 });
 
         fetch(ReactThemeSettings.URL.api + "/posts/?page=" + this.state.page)
-            .then(function (response) {
-                for (var pair of response.headers.entries()) {
+            .then( (response) => {
+                const { ok, statusText, headers } = response
+                var totalPages
+
+                for (var pair of headers.entries()) {
 
                     // getting the total number of pages
                     if (pair[0] == 'x-wp-totalpages') {
                         totalPages = pair[1];
                     }
 
-                    if (that.state.page >= totalPages) {
-                        that.setState({ getPosts: false })
+                    if (this.state.page >= totalPages) {
+                        this.setState({ getPosts: false })
                     }
                 }
-                if (!response.ok) {
-                    throw Error(response.statusText);
+                if (!ok) {
+                    throw Error(statusText);
                 }
+
                 return response.json();
             })
-            .then(function (results) {
-                var allPosts = that.state.posts.slice();
-                results.forEach(function (single) {
-                    allPosts.push(single);
-                })
-                that.setState({ posts: allPosts });
+            .then( (results) => {
+                var allPosts = this.state.posts.slice();
+                results.forEach( (single) => (allPosts.push(single)) )
+                this.setState({ posts: allPosts });
 
                 // removing the loader
                 jQuery("#loader").removeClass("active");
@@ -83,11 +86,11 @@ class Posts extends Component {
     }
 
     componentDidUpdate() {
-        var FadeInController = new ScrollMagic.Controller();
+        const FadeInController = new ScrollMagic.Controller();
         jQuery('.posts-container .col-md-4.card-outer').each(function () {
 
             // build a scene
-            var FadeInScene = new ScrollMagic.Scene({
+            const FadeInScene = new ScrollMagic.Scene({
                 triggerElement: this.children[0],
                 reverse: false,
                 triggerHook: 1
@@ -98,14 +101,17 @@ class Posts extends Component {
     }
 
     render() {
-        if (this.state.posts.length == 0) {
+
+        const { posts } = this.state
+
+        if (posts.length == 0) {
             return null;
         }
         return (
             <div>
                 <div className="container">
                     <h1 className="posts-title">Posts</h1>
-                    <PostList posts={this.state.posts} />
+                    <PostList posts={posts} />
                 </div>
                 <img src={LoadingIcon} alt="loader gif" id="loader" />
             </div>
