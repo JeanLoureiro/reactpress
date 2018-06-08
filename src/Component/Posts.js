@@ -87,6 +87,7 @@ class Posts extends Component {
 
     componentDidUpdate() {
         const FadeInController = new ScrollMagic.Controller();
+        // TODO: remove jQuery
         jQuery('.posts-container .col-md-4.card-outer').each(function () {
 
             // build a scene
