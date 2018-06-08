@@ -98,14 +98,16 @@ class Posts extends React.Component {
     }
 
     render() {
-        if (this.state.posts.length == 0) {
+        const { posts } = this.state
+
+        if (posts.length == 0) {
             return null;
         }
         return (
             <div>
                 <div className="container">
                     <h1 className="posts-title">Posts</h1>
-                    <PostList posts={this.state.posts} />
+                    <PostList posts={posts} />
                 </div>
                 <img src={LoadingIcon} alt="loader gif" id="loader" />
             </div>
