@@ -20,7 +20,7 @@ class PostList extends Component {
                             </Link>
                         </div>
                         <div className="card-body">
-                            <h4 className="card-title"><Link to={'posts/' + post.slug}>{post.title.rendered}</Link></h4>
+                            <h4 className="card-title"><Link to={'post/' + post.slug}>{post.title.rendered}</Link></h4>
                             <p className="card-text"><small className="text-muted">{post.author_name} &ndash; {post.published_date}</small></p>
                             <div dangerouslySetInnerHTML={{ __html: post.excerpt.rendered }}  />
 

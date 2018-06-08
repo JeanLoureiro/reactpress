@@ -15,6 +15,7 @@ class Header extends Component {
                         <div className="collapse navbar-collapse" id="navbarNavAltMarkup">
                             <div className="navbar-nav">
                                 <Link className="nav-item nav-link active" to={ThemeSettings.path} >Home <span className="sr-only">(current)</span></Link>
+                                <Link className="nav-item nav-link active" to={ThemeSettings.path + 'posts'} >Posts <span className="sr-only">(current)</span></Link>
                             </div>
                         </div>
                     </nav >

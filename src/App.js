@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'
 
 import Header from './Component/Header'
 import Footer from './Component/Footer'
+import Home from './Component/Home'
 import Posts from './Component/Posts'
 import Post from './Component/Post'
 import NotFound from './Component/NotFound'
@@ -20,8 +21,9 @@ class App extends Component {
 
                         <div id="content">
                             <Switch>
-                                <Route exact path={ThemeSettings.path} component={Posts} />
-                                <Route exact path={ThemeSettings.path + 'posts/:slug'} component={Post} />
+                                <Route exact path={ThemeSettings.path} component={Home} />
+                                <Route exact path={ThemeSettings.path + 'posts'} component={Posts} />
+                                <Route exact path={ThemeSettings.path + 'post/:slug'} component={Post} />
                                 <Route path="*" component={NotFound} />
                             </Switch>
                         </div>
