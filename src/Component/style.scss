@@ -3,6 +3,7 @@
         max-width: 1200px;
     }
 }
+body, html{ height: 100%; }
 
 body, div#page-inner {  /* Will not work on IE if body is ommitted */
     display: flex;

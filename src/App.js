@@ -3,7 +3,7 @@ import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'
 
 import Header from './Component/Header'
 import Footer from './Component/Footer'
-import Home from './Component/Home'
+import Home from './Component/Home/Home'
 import Posts from './Component/Posts'
 import Post from './Component/Post'
 import NotFound from './Component/NotFound'
@@ -14,24 +14,20 @@ require('./Component/style.scss')
 class App extends Component {
     render () {
         return (
-            <div id="page-inner">
-                <Router>
-                    <div>
-                        <Header />
+            <Router>
+                <div>
+                    <Header />
 
-                        <div id="content">
-                            <Switch>
-                                <Route exact path={ThemeSettings.path} component={Home} />
-                                <Route exact path={ThemeSettings.path + 'posts'} component={Posts} />
-                                <Route exact path={ThemeSettings.path + 'post/:slug'} component={Post} />
-                                <Route path="*" component={NotFound} />
-                            </Switch>
-                        </div>
+                    <Switch>
+                        <Route exact path={ThemeSettings.path} component={Home} />
+                        <Route exact path={ThemeSettings.path + 'posts'} component={Posts} />
+                        <Route exact path={ThemeSettings.path + 'post/:slug'} component={Post} />
+                        <Route path="*" component={NotFound} />
+                    </Switch>
 
-                        <Footer />
-                    </div>
-                </Router>
-            </div>
+                    <Footer />
+                </div>
+            </Router>
         )
     }
 }

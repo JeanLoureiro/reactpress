@@ -1,0 +1,14 @@
+section{ clear: both;}
+
+.home_blog{
+    max-width: 1200px;
+    margin: 0 auto;
+
+    h2{ text-align: center;}
+
+    .card{
+        width: 31%;
+        float: left;
+        margin: 14px;
+    }
+}

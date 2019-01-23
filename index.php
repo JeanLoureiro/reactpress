@@ -19,11 +19,9 @@
         <?php wp_head(); ?>
     </head>
     <body <?php body_class(); ?>>
-        <div id="page" class="hfeed site">
-            <div id="content">
-                <div class="loader-gif">
-                    <img src="<?php echo home_url() ?>/wp-content/themes/react-theme/dist/images/loading-icon.gif" alt="Loader">
-                </div>
+        <div id="page">
+            <div class="loader-gif">
+                <img src="<?php echo home_url() ?>/wp-content/themes/react-theme/dist/images/loading-icon.gif" alt="Loader">
             </div>
             <?php wp_footer(); ?>
         </div>

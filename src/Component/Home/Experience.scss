@@ -1,0 +1,13 @@
+.experience_education{
+    max-width: 1200px;
+    margin: 0 auto;
+
+    h2{ text-align: center;}
+
+    .experience,
+    .education{
+        width: 50%;
+        float: left;
+        padding: 15px;
+    }
+}
